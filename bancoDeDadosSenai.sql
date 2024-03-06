@@ -168,3 +168,40 @@
 --     FOREIGN KEY (id_caminhao)
 --         REFERENCES tb_caminhao (id_caminhao)
 -- )  DEFAULT CHARSET UTF8;
+
+
+----------------------------------------------------------------------------
+
+-- create database db_floricultura_jessica;
+
+-- use db_floricultura_jessica;
+
+-- create table tb_cliente(
+-- IDCliente int not null primary key auto_increment,
+-- Nome varchar(255) not null,
+-- RG varchar(15) unique,
+-- endereco varchar(60),
+-- telefone char(11)
+-- )default charset utf8;
+
+-- create table tb_venda(
+-- IDVenda int not null primary key auto_increment,
+-- valor decimal(8,2) not null,
+-- data_compra datetime not null,
+-- IDCliente int not null,
+-- IDProduto int not null,
+-- foreign key(IDCliente) references tb_cliente(IDCliente),
+-- foreign key(IDProduto) references tb_produto(IDProduto)
+-- )
+
+-- create table tb_produto(
+-- IDProduto int not null primary key auto_increment,
+-- Tipo varchar(20) not null,
+-- Preco decimal(6,2)
+-- )default charset utf8
+
+-- create table tb_funcionario(
+-- IDFuncionario int not null primary key auto_increment,
+-- Nome varchar(255) not null,
+-- RG varchar(15) unique
+-- ) default charset utf8;
