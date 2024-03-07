@@ -1,0 +1,46 @@
+create database db_oficina_mecanica;
+use db_oficina_mecanica;
+
+create table tb_cliente(
+	id_cliente int not null primary key auto_increment,
+	nome varchar(255),
+    telefone char(11),
+    endereco varchar(60)
+) default charset utf8;
+drop table tb_ciente;
+create table tb_veiculo(
+	id_veiculo int not null primary key auto_increment,
+    modelo varchar(20) not null,
+    marca varchar(20)not null,
+    ano int not null,
+    placa char(7)
+) default charset utf8;
+
+create table tb_item_servico (
+	id_item_servico int not null primary key auto_increment,
+    item varchar(30) not null,
+    quantidade int not null
+    
+) default charset utf8;
+
+create table tb_servico(
+	id_servico int not null primary key auto_increment,
+    id_item_servico int not null,
+    descricao varchar (550) not null,
+    preco decimal(7,2),
+    foreign key (id_item_servico) references tb_item_servico (id_item_servico)
+)default charset utf8;
+
+create table tb_ordem_servico(
+	id_ordem_servico int not null primary key auto_increment,
+    id_servico int not null,
+    id_cliente int not null,
+    id_veiculo int not null,
+    dT_entrada datetime not null,
+    dt_conclusao datetime not null,
+    stt_ordem_servico varchar(250),
+    obs_add varchar(250),
+    foreign key (id_servico) references tb_servico (id_servico),
+    foreign key (id_cliente) references tb_cliente (id_cliente),
+    foreign key (id_veiculo) references tb_veiculo (id_veiculo)
+) default charset utf8;
